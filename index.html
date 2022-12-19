@@ -1,0 +1,240 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Document</title>
+<style>
+body {
+   margin: 0px;
+   padding: 0px;
+}
+nav {
+   position: relative;
+   top: 0;
+   width: 100%;
+   background-color: rgb(5, 5, 5);
+   overflow: auto;
+   height: auto;
+}
+.links {
+   display: inline-block;
+   text-align: center;
+   padding: 14px;
+   color: rgb(178, 137, 253);
+   text-decoration: none;
+   font-size: 17px;
+}
+.links:hover {
+   background-color: rgb(100, 100, 100);
+}
+.selected {
+   background-color: rgb(13, 3, 43);
+}
+.hamburger {
+   color: white;
+   font-weight: bolder;
+   display: none;
+}
+@media screen and (max-width: 600px) {
+nav a:not(:first-child) {
+   display: none;
+}
+nav a.hamburger {
+   float: right;
+   display: block;
+   padding: 12px;
+}
+nav.openNav a.hamburger {
+   position: absolute;
+   right: 0;
+   bottom: 0;
+}
+nav.openNav a {
+   float: none;
+   display: block;
+   text-align: center;
+}
+}
+body {
+      background-image: url("https://img.freepik.com/premium-photo/beach-fashion-concept-flat-lay-girls-accessories-clothes-with-green-leaves-pink-background-fl_248570-2596.jpg?w=2000");
+      background-repeat: no-repeat;
+      background-attachment: fixed;
+      background-size: cover ;
+}
+h1{
+      position: absolute;
+  top:250px;
+  right:550px;
+    }
+    h2{
+      position: absolute;
+  top:305px;
+  right:700px;
+    }
+    h3{
+      position: absolute;
+  top:-5px;
+  right:68px;
+   }
+   h4{
+      position: absolute;
+  top:-8px;
+  right:29px;
+   }
+.imgcontainer {
+  text-align: center;
+  margin: 24px 0 12px 0;
+  position: relative;
+}
+
+img.avatar {
+  width: 0%
+  border-radius: 0%;
+}
+
+.container {
+  padding: 16px;
+}
+
+.container {
+  padding: 16px;
+}
+.imgcontainer {
+  text-align: center;
+  margin: 24px 0 12px 0;
+  position: relative;
+}
+
+img.reg {
+  width: 0%
+  border-radius: 0%;
+}
+
+.container {
+  padding: 16px;
+}
+
+.container {
+  padding: 16px;
+}
+
+span.psw {
+  float: right;
+  padding-top: 16px;
+}
+
+/* The Modal (background) */
+.modal {
+  display: none; /* Hidden by default */
+  position: fixed; /* Stay in place */
+  z-index: 1; /* Sit on top */
+  left: 0;
+  top: 0;
+  width: 100%; /* Full width */
+  height: 100%; /* Full height */
+  overflow: auto; /* Enable scroll if needed */
+  background-color: rgb(0,0,0); /* Fallback color */
+  background-color: rgba(0,0,0,0.4); /* Black w/ opacity */
+  padding-top: 60px;
+}
+
+/* Modal Content/Box */
+.modal-content {
+  background-color: #fefefe;
+  margin: 5% auto 15% auto; /* 5% from the top, 15% from the bottom and centered */
+  border: 1px solid #888;
+  width: 80%; /* Could be more or less, depending on screen size */
+}
+
+/* The Close Button (x) */
+.close {
+  position: absolute;
+  right: 25px;
+  top: 0;
+  color: #000;
+  font-size: 35px;
+  font-weight: bold;
+}
+
+.close:hover,
+.close:focus {
+  color: red;
+  cursor: pointer;
+}
+
+/* Add Zoom Animation */
+.animate {
+  -webkit-animation: animatezoom 0.6s;
+  animation: animatezoom 0.6s
+}
+
+@-webkit-keyframes animatezoom {
+  from {-webkit-transform: scale(0)} 
+  to {-webkit-transform: scale(1)}
+}
+  
+@keyframes animatezoom {
+  from {transform: scale(0)} 
+  to {transform: scale(1)}
+}
+
+/* Change styles for span and cancel button on extra small screens */
+@media screen and (max-width: 300px) {
+  span.psw {
+     display: block;
+     float: none;
+  }
+  .cancelbtn {
+     width: 100%;
+  }
+}
+.product-row {
+	padding: 10px 0px;
+	clear: both;
+}
+
+.description {
+	line-height: 20px;
+	display: inline-block;
+}
+
+
+
+</style>
+</head>
+<body>
+<nav class="bottomNav">
+<a class="links selected"> HOME</a>
+<a class="links" href="men (1).html"> MEN</a>
+<a class="links" href="women1.html"> WOMEN</a>
+<a class="links" href="kids.html">KIDS</a>
+<a class="links" href="accessories1.html">ACCESSORIES</a>
+<a class="links" href="contact (1).html">CONTACT US</a>
+<a class="links" href="moreinfo (1).html">MORE INFO</a>
+<a class="hamburger">â˜°</a>
+</nav>
+<script>
+function toggleNav() {
+   var x = document.getElementsByTagName("nav")[0];
+   if (x.className === "bottomNav") {
+      x.className += " openNav";
+   } else {
+      x.className = "bottomNav";
+   }
+}
+document.querySelector(".hamburger").addEventListener("click", toggleNav);
+</script>
+<h3><a href="log.html"> <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRXSTblEVkkdJh15jlAbC3FpvuzCKb1o-pQQA&usqp=CAU"  height="30px" width="25px"class="avatar"></a></h3>
+<h4><a href="ss.html"> <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQIw_TzALgawfq8WLIPB4zMRCBniXLDar2y8Q&usqp=CAU"  height="30px" width="25px"class="avatar"></a></h4>
+       
+<center>
+<h1>Welcome to World of Fashion</h1>
+</center>
+<h2><b>Verge for New year</b></h2>
+<h1 style="text-align:center;color:black;font-style:italic;font-size:30px;position: absolute;
+  top: 60%;
+  right: 22%;
+  transform: translate(-50%, -50%);" class="body">best fashion collection of all time</h1>
+</body>
+</html>

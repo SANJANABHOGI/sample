@@ -1,0 +1,171 @@
+<!DOCTYPE html>
+<html>
+<head>
+<style>
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'roboto', sans-serif;
+}
+
+.navbar{
+    position: sticky;
+    top: 0;
+    left: 0;
+    width: 100%;
+    background: #f5f5f5;
+    z-index: 9;
+}
+
+.nav{
+    padding: 10px 10vw;
+    display: flex;
+    justify-content: space-between;
+}
+
+.brand-logo{
+    height: 60px;
+}
+
+.nav-items{
+    display: flex;
+    align-items: center;
+}
+
+.search{
+    width: 500px;
+    display: flex;
+}
+
+.search-box{
+    width: 80%;
+    height: 40px;
+    padding: 10px;
+    border-top-left-radius: 10px;
+    border-bottom-left-radius: 10px;
+    border: 1px solid #d1d1d1;
+    text-transform: capitalize;
+    background: none;
+    color: #a9a9a9;
+    outline: none;
+}
+
+.search-btn{
+    width: 20%;
+    height: 40px;
+    padding: 10px 20px;
+    border: none;
+    outline: none;
+    cursor: pointer;
+    background: #383838;
+    color: #fff;
+    text-transform: capitalize;
+    font-size: 15px;
+    border-top-right-radius: 10px;
+    border-bottom-right-radius: 10px;
+}
+
+.search-box::placeholder{
+    color: #a9a9a9;
+}
+
+.nav-items a{
+    margin-left: 20px;
+}
+
+.nav-items a img{
+    width: 30px;
+}
+footer{
+    position: relative;
+    width: 100%;
+    padding: 40px 10vw;
+    padding-bottom: 80px;
+    background: #383838;
+}
+
+.footer-content{
+    display: flex;
+    width: 100%;
+    justify-content: space-between;
+}
+
+.footer-content .logo{
+    height: 160px;
+}
+
+.footer-ul-container{
+    width: 45%;
+    display: flex;
+    justify-content: space-between;
+}
+
+.category{
+    width: 200px;
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    grid-gap: 10px;
+    list-style: none;
+}
+
+.category-title{
+    grid-column: span 2;
+    text-transform: capitalize;
+    color: #fff;
+    font-size: 20px;
+    margin-bottom: 20px;
+}
+
+.category .footer-link{
+    text-decoration: none;
+    text-transform: capitalize;
+    color: rgba(255, 255, 255, 0.75);
+}
+
+.footer-link:hover{
+    color: #fff;
+}
+</style>
+</head>
+<body>
+<footer>
+    <div class="footer-content">
+        <img src="img/light-logo.png" class="logo" alt="">
+        <div class="footer-ul-container">
+            <ul class="category">
+                <li class="category-title"><h3>Men</h3></li>
+                <li><a href="men.html" class="footer-link">Dress</a></li>
+                <li><a href="mfoot.html" class="footer-link">Footware</a></li>
+                <li><a href="rings.html" class="footer-link">jewellery</a></li>
+                <li><a href="watch.html" class="footer-link">watches</a></li>
+            </ul>
+            <ul class="category">
+                <li class="category-title"><h3>Women</h3></li>
+                <li><a href="women.html" class="footer-link">Dresses</a></li>
+                <li><a href="wfoot.html" class="footer-link">footware</a></li>
+                <li><a href="rings.html" class="footer-link">Jewellery</a></li>
+                <li><a href="watch.html" class="footer-link">watches</a></li>
+                <li><a href="makeup.html" class="footer-link">Beauty products</a></li> 
+            </ul>
+        </div>
+		<div class="footer-ul-container">
+		    <ul class="category">
+                <li class="category-title"><h3>Kids</h3></li>
+                <li><a href="kid.html" class="footer-link">Dresses</a></li>
+                <li><a href="wfoot.html" class="footer-link">girls footware</a></li>
+                <li><a href="mfoot.html" class="footer-link">boys footware</a></li>
+            </ul>
+            <ul class="category">
+                <li class="category-title"><h3>Accessories</h3></li>
+                <li><a href="watch.html" class="footer-link">Watches</a></li>
+                <li><a href="wfoot.html" class="footer-link">women footware</a></li>
+                <li><a href="mfoot.html" class="footer-link">men footware</a></li>
+                <li><a href="rings.html" class="footer-link">jewellery</a></li>
+                <li><a href="makeup.html" class="footer-link">Beauty products</a></li> 
+            </ul>
+		</div>
+    </div>
+</footer>
+</body>
+</html>

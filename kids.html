@@ -1,0 +1,244 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<style>
+.product-container{
+    padding: 0 10vw;
+    display: flex;
+    overflow-x: auto;
+    scroll-behavior: smooth;
+}
+
+.product-container::-webkit-scrollbar{
+    display: none;
+}
+
+.product-card{
+    flex: 0 0 auto;
+    width: 250px;
+    height: 500px;
+    margin-right: 40px;
+}
+
+.product-image{
+    position: relative;
+    width: 100%;
+    height: 350px;
+    overflow: hidden;
+}
+
+.product-thumb{
+    width: 100%;
+    height: 350px;
+    object-fit: cover;
+}
+
+.discount-tag{
+    position: absolute;
+    background: #fff;
+    padding: 5px;
+    border-radius: 5px;
+    color: #ff7d7d;
+    right: 10px;
+    top: 10px;
+    text-transform: capitalize;
+}
+
+.card-btn{
+    position: absolute;
+    bottom: 10px;
+    left: 50%;
+    transform: translateX(-50%);
+    padding: 10px;
+    width: 90%;
+    text-transform: capitalize;
+    border: none;
+    outline: none;
+    background: #fff;
+    border-radius: 5px;
+    transition: 0.5s;
+    cursor: pointer;
+    opacity: 0;
+}
+
+.product-card:hover .card-btn{
+    opacity: 1;
+}
+
+.card-btn:hover{
+    background: #efefef;
+}
+
+.product-info{
+    width: 100%;
+    height: 100px;
+    padding-top: 10px;
+}
+
+.product-brand{
+    text-transform: uppercase;
+}
+
+.product-short-des{
+    width: 100%;
+    height: 20px;
+    line-height: 20px;
+    overflow: hidden;
+    opacity: 0.5;
+    text-transform: capitalize;
+    margin: 5px 0;
+}
+
+.price{
+    font-weight: 900;
+    font-size: 20px;
+}
+
+.actual-price{
+    margin-left: 20px;
+    opacity: 0.5;
+    text-decoration: line-through;
+}
+.pre-btn, .nxt-btn{
+    border: none;
+    width: 10vw;
+    height: 100%;
+    position: absolute;
+    top: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background: linear-gradient(90deg, rgba(255, 255, 255, 0) 0%, #fff 100%);
+    cursor: pointer;
+    z-index: 8;
+}
+
+.pre-btn{
+    left: 0;
+    transform: rotate(180deg);
+}
+
+.nxt-btn{
+    right: 0;
+}
+
+.pre-btn img, .nxt-btn img{
+    opacity: 0.2;
+}
+
+.pre-btn:hover img, .nxt-btn:hover img{
+    opacity: 1;
+}
+</style>
+</head>
+<body>
+<button class="pre-btn"><img src="data:image/png;base64,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" style="width:50px;heiht:50px;" alt=" > "></button>
+<button class="nxt-btn"><img src="data:image/png;base64,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" style="width:50px;heiht:50px;" alt=" > "></button>
+
+<div class="product-container">
+    <div class="product-card">
+        <div class="product-image">
+            <span class="discount-tag">50% off</span>
+            <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSCLxZjuvezyspzbtR_6ETUezt5r45uoQKsfQ&usqp=CAU" class="product-thumb" alt="">
+            <button class="card-btn">add to whislist</button>
+        </div>
+        <div class="product-info">
+            <h2 class="product-brand">brand</h2>
+            <p class="product-short-des">a short line about the cloth..</p>
+            <span class="price">$20</span><span class="actual-price">$40</span>
+        </div>
+    </div><br><hr>
+    <div class="product-card">
+        <div class="product-image">
+            <span class="discount-tag">50% off</span>
+            <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTk5g16K__KVrxQM4FaDkVWbqeECTvYMrqaHA&usqp=CAU" class="product-thumb" alt="">
+            <button class="card-btn">add to whislist</button>
+        </div>
+        <div class="product-info">
+            <h2 class="product-brand">brand</h2>
+            <p class="product-short-des">a short line about the cloth..</p>
+            <span class="price">$20</span><span class="actual-price">$40</span>
+        </div>
+    </div><br><hr>
+    <div class="product-card">
+        <div class="product-image">
+            <span class="discount-tag">50% off</span>
+            <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRbP-r2rnDx78Panq3id6CWpGu5F3Dw9sLjUQ&usqp=CAU" class="product-thumb" alt="">
+            <button class="card-btn">add to whislist</button>
+        </div>
+        <div class="product-info">
+            <h2 class="product-brand">brand</h2>
+            <p class="product-short-des">a short line about the cloth..</p>
+            <span class="price">$20</span><span class="actual-price">$40</span>
+        </div>
+    </div><br><hr>
+    <div class="product-card">
+        <div class="product-image">
+            <span class="discount-tag">50% off</span>
+            <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRKSFJvcQzoQgB7O7j8D086mveoreimTz2vQA&usqp=CAU" class="product-thumb" alt="">
+            <button class="card-btn">add to whislist</button>
+        </div>
+        <div class="product-info">
+            <h2 class="product-brand">brand</h2>
+            <p class="product-short-des">a short line about the cloth..</p>
+            <span class="price">$20</span><span class="actual-price">$40</span>
+        </div>
+    </div><br><hr>
+    <div class="product-card">
+        <div class="product-image">
+            <span class="discount-tag">50% off</span>
+            <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcT7JIdStPTCf_pyYEEQvY7NS3PA5QBGFUCVrA&usqp=CAU" class="product-thumb" alt="">
+            <button class="card-btn">add to whislist</button>
+        </div>
+        <div class="product-info">
+            <h2 class="product-brand">brand</h2>
+            <p class="product-short-des">a short line about the cloth..</p>
+            <span class="price">$20</span><span class="actual-price">$40</span>
+        </div>
+    </div><br><hr>
+    <div class="product-card">
+        <div class="product-image">
+            <span class="discount-tag">50% off</span>
+            <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcR_ItMwx7VqcwJ-25svy-Pmb-xL_0UagmIqNg&usqp=CAU" class="product-thumb" alt="">
+            <button class="card-btn">add to whislist</button>
+        </div>
+        <div class="product-info">
+            <h2 class="product-brand">brand</h2>
+            <p class="product-short-des">a short line about the cloth..</p>
+            <span class="price">$20</span><span class="actual-price">$40</span>
+        </div>
+    </div><br><hr>
+    <div class="product-card">
+        <div class="product-image">
+            <span class="discount-tag">50% off</span>
+            <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQOsyNg177cjQ19keIMs987frY9DMsjjFr6fQ&usqp=CAU" class="product-thumb" alt="">
+            <button class="card-btn">add to whislist</button>
+        </div>
+        <div class="product-info">
+            <h2 class="product-brand">brand</h2>
+            <p class="product-short-des">a short line about the cloth..</p>
+            <span class="price">$20</span><span class="actual-price">$40</span>
+        </div>
+    </div>
+</div>
+<script>
+const productContainers = [...document.querySelectorAll('.product-container')];
+const nxtBtn = [...document.querySelectorAll('.nxt-btn')];
+const preBtn = [...document.querySelectorAll('.pre-btn')];
+
+productContainers.forEach((item, i) => {
+    let containerDimenstions = item.getBoundingClientRect();
+    let containerWidth = containerDimenstions.width;
+
+    nxtBtn[i].addEventListener('click', () => {
+        item.scrollLeft += containerWidth;
+    })
+
+    preBtn[i].addEventListener('click', () => {
+        item.scrollLeft -= containerWidth;
+    })
+})
+</script>
+</body>
+</html>
